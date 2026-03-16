@@ -4,10 +4,9 @@ name: DAB Validate and Deploy
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "feature/dlt" branch
-  push:
-    branches: [ "feature/dlt" ]
   pull_request:
+    types:
+      - closed
     branches: [ "feature/dlt" ]
 
   # Allows you to run this workflow manually from the Actions tab
