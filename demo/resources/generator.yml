@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    incremental_data:
+      name: incremental_data
+      tasks:
+        - task_key: data_generator
+          notebook_task:
+            notebook_path: ../src/incremental-generator/Incremental_data_generator.py
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: STANDARD

@@ -1,0 +1,12 @@
+resources:
+  pipelines:
+    chalmers_demo_dlt_sql:
+      name: dlt_sql
+      libraries:
+        - glob:
+            include: ../src/demo-sql/transformations/**
+      schema: sap_dlt_sql
+      photon: true
+      catalog: chalmers_demo
+      serverless: true
+      root_path: ../src/demo-sql

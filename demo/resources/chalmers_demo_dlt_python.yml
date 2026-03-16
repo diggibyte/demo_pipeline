@@ -1,0 +1,12 @@
+resources:
+  pipelines:
+    chalmers_demo_dlt_python:
+      name: dlt_python
+      libraries:
+        - glob:
+            include: ../src/demo-py/transformations/**
+      schema: sap_demo_python
+      photon: true
+      catalog: chalmers_demo
+      serverless: true
+      root_path: ../src/demo-py

@@ -1,0 +1,29 @@
+name: Databricks DAB Validate
+on:
+  pull_request:
+
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  CI:
+    name: Databricks DAB Validation
+    runs-on: ubuntu-latest
+    environment: lab
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
+      - name: setup databricks cli
+        uses: databricks/setup-cli@main
+
+      - name: DAB Validation
+        env:
+          DATABRICKS_HOST: ${{ vars.DAB_DEPLOY }} #DBX HOSTNAME
+          DATABRICKS_TOKEN: ${{ secrets.DAB_DEPLOY }} #DBX TOKEN
+        run: |
+          cd ${{ github.workspace }}/demo
+          databricks bundle validate -p lab -t lab
